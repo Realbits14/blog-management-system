@@ -52,22 +52,4 @@
                     userDetails.classList.remove('active');
                 }
             });
-            
-        // function logout() {
-        //     if (confirm("Are you sure you want to logout?")) {
-                
-        //         const form = document.createElement('form');
-        //         form.method = 'POST';
-        //         form.action = '{{ route("logout") }}';
-
-        //         const csrfToken = document.createElement('input');
-        //         csrfToken.type = 'hidden';
-        //         csrfToken.name = '_token';
-        //         csrfToken.value = '{{ csrf_token() }}'; 
-
-        //         form.appendChild(csrfToken);
-        //         document.body.appendChild(form);
-        //         form.submit(); 
-        //     }
-        // }
     </script>
