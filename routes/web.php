@@ -10,8 +10,6 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 
-Route::auth();
-
 Route::group([], function() {
   Route::resource('/posts', PostController::class);
 
@@ -34,8 +32,8 @@ Route::group([], function() {
 });
 
 // Routes for Dashboard Page
-Route::prefix('dashboard')->group(function () {
-  Route::get('/', [HomeController::class, 'dashboard'])->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+  Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
   Route::get('/users', [UserController::class, 'index'])->name('users.index');
   Route::resource('/analytics', AnalyticsController::class);
   Route::delete('/delete/{id}', [UserController::class, 'destroy'])->name('users.destroy');
